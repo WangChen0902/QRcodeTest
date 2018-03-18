@@ -18,14 +18,20 @@ namespace QRcodeTest
 
         private void button1_Click(object sender, EventArgs e)
         {
-            pictureBox1.Refresh();
-            QrEncoder qrEncoder = new QrEncoder(ErrorCorrectionLevel.M);
-            QrCode qrCode = qrEncoder.Encode(textBox1.Text);
-            GraphicsRenderer render = new GraphicsRenderer(new FixedModuleSize(5, QuietZoneModules.Two), Brushes.Black, Brushes.White);
-            Point padding = new Point(0, 0);
-            Graphics graphics = pictureBox1.CreateGraphics();
-            render.Draw(graphics, qrCode.Matrix, padding);
+            if (textBox1.Text.Length > 100)
+            {
+                MessageBox.Show("文本信息过长！");
+            }
+            else
+            {
+                pictureBox1.Refresh();
+                QrEncoder qrEncoder = new QrEncoder(ErrorCorrectionLevel.M);
+                QrCode qrCode = qrEncoder.Encode(textBox1.Text);
+                GraphicsRenderer render = new GraphicsRenderer(new FixedModuleSize(5, QuietZoneModules.Two), Brushes.Black, Brushes.White);
+                Point padding = new Point(0, 0);
+                Graphics graphics = pictureBox1.CreateGraphics();
+                render.Draw(graphics, qrCode.Matrix, padding);
+            }
         }
     }
 }
-    
