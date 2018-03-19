@@ -10,7 +10,7 @@ namespace QRcodeTest
 {
     public partial class Form1 : Form
     {
-        public static string FILE_NAME = Environment.CurrentDirectory+"temp.png";
+        public static string FILE_NAME = Environment.CurrentDirectory+"\\temp.png";
         static void InitQRCode(string qrText)
         {
             QrEncoder qrEncoder = new QrEncoder(ErrorCorrectionLevel.M);
@@ -36,6 +36,7 @@ namespace QRcodeTest
         public Form1(string arg)
         {
             InitializeComponent();
+            this.Text = "QRcode";
             button1.Text = "确定";
             textBox2.Text = "请输入文本(大于0且小于100个字符)：";
             textBox3.Text = arg;
