@@ -56,11 +56,11 @@ namespace QRcodeTest
         {
             //初始化内容
             InitializeComponent();
-            //重新定义textBox3的文本内容
-            textBox3.Text = arg;
             //利用arg参数初始化二维码
             InitQRCode(arg);
-            //初始化PictBox1的图片
+            //重新定义textBox1的内容
+            textBox1.Text = arg;
+            //初始化pictBox1的图片
             pictureBox1.Image = Image.FromFile(FILE_NAME);
         }
 
